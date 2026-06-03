@@ -12,21 +12,38 @@ def register(request):
         last_name = request.POST.get("last_name")
         email = request.POST.get("email")
         password = request.POST.get("password")
+        phone_number=request.POST.get("phone_number")
 
         User.objects.create(
             first_name=first_name,
             last_name=last_name,
             email=email,
             password=password,
+            phone_number=phone_number,
           
         )
-        print(User)
+        return redirect('index.html')
 
-    return render(request, 'register.html')
+    return render(request, 'index.html')
+
 
 def login_view(request):
-    return HttpResponse("Login Page")
 
+    if request.method == "POST":
 
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        user = User.objects.filter(
+            email=email,
+            password=password
+        ).first()
+
+        if user:
+            return render(request, "index.html")
+
+    return render(request, "login.html")
+
+    
 def logout_view(request):
     return HttpResponse("Logout Page")
