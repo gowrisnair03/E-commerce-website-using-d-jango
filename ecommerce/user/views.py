@@ -22,11 +22,12 @@ def register(request):
             phone_number=phone_number,
           
         )
-        return redirect('index.html')
+        return redirect('index')
 
     return render(request, 'index.html')
 
-
+def index(request):
+    return render(request, 'index.html')
 def login_view(request):
 
     if request.method == "POST":
