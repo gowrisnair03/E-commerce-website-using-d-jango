@@ -47,6 +47,9 @@ def login_view(request):
 
     return render(request, "login.html")
 
+def error404(request):
+    return render(request ,"404.html")
+
 def testimonial(request):
     return render(request,"testimonial.html")    
 
