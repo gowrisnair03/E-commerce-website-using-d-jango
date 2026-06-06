@@ -28,6 +28,8 @@ def register(request):
 
 def index(request):
     return render(request, 'index.html')
+
+    
 def login_view(request):
 
     if request.method == "POST":
@@ -44,6 +46,23 @@ def login_view(request):
             return render(request, "index.html")
 
     return render(request, "login.html")
+
+def testimonial(request):
+    return render(request,"testimonial.html")    
+
+
+def chackout(request):
+    return render(request ,"chackout.html")    
+
+def cart(request):
+    return render(request, "cart.html")    
+
+
+def shopdetail(request):
+    return render(request, "shop-detail.html")
+
+def shop(request):
+    return render(request,"shop.html")
 
     
 def logout_view(request):
