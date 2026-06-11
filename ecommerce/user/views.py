@@ -22,9 +22,9 @@ def register(request):
             phone_number=phone_number,
           
         )
-        return redirect('index')
+        return redirect('login')
 
-    return render(request, 'index.html')
+    return render(request, 'register.html')
 
 def index(request):
     return render(request, 'index.html')
