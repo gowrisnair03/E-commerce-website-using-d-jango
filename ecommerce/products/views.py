@@ -48,3 +48,15 @@ def shop(request):
     for product in products:
         print(product.name)
     return render(request,"shop.html",{"products":products})
+    
+
+def cart(request):
+
+    products = Product.objects.all()
+    return redirect('add')
+
+
+def add(request, id):
+    product = get_object_or_404(Product, id=id)
+    print(product)
+    return render(request, "cart.html", {"product": product})
