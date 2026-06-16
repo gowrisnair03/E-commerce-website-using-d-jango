@@ -60,3 +60,8 @@ def add(request, id):
     product = get_object_or_404(Product, id=id)
     print(product)
     return render(request, "cart.html", {"product": product})
+
+def checkout(request, id):
+
+    product = get_object_or_404(Product, id=id)
+    return render(request, "chackout.html", {"product": product})    
